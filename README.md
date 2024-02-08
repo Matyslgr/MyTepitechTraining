@@ -10,9 +10,9 @@ Briefly describe your project here.
 - Python
 - OpenAI API
 
-## Getting Started
+### Getting Started
 
-### Prerequisites
+## Prerequisites
 
 Make sure you have the following installed:
 
@@ -20,43 +20,42 @@ Make sure you have the following installed:
 - Python
 - Flask
 
-### Installation
+## Installation
 
-## Clone the repository:
+### Clone the repository:
 
    ```bash
    git clone https://github.com/Matyslgr/MyTepitechTraining
    cd MyTEpitechTraining
    ```
-## Install dependencies
+### Install dependencies
 ```
 npm install
 ```
 
 ### Configuration
-## API key:
 ```
 OPENAI_API_KEY=your_openai_api_key
 ```
 
-### Usage
+## Usage
 **1 In a terminal**
-## Launch python server
+### Launch python server
 ```
 cd server
 python3 script.py
 ```
 **2 In another terminal**
-## Project setup 
+### Project setup 
 ```
 npm install
 ```
 
-## Start the Vue.js development server:
+### Start the Vue.js development server:
 ```
 npm run serve
 ```
-## Visit http://localhost:8080 in your web browser.
+### Visit http://localhost:8080 in your web browser.
 
-### How to Use
+## How to Use
 Upload an image and select the type of analysis (text or hole) to get processed results.
