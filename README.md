@@ -9,6 +9,7 @@ My Tepitech Training is a project that leverages Vue.js, Flask, Python, and the 
 - Flask
 - Python
 - OpenAI API
+- Tesseract
 
 ## Getting Started
 
@@ -19,6 +20,7 @@ Make sure you have the following installed:
 - Node.js and npm
 - Python
 - Flask
+- pyTesseract
 
 ### Installation
 
@@ -32,10 +34,7 @@ cd MyTEpitechTraining
 ```bash
 npm install
 ```
-
-### Configuration
-
-Create a file named .env in the folder server of your project and add the OpenAI
+3. **Create a file named .env in the folder server of your project and add the OpenAI**
 ```bash
 cd server
 ```
