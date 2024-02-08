@@ -1,5 +1,12 @@
-# my_tepitech_training
+# My_Tepitech_Training
 
+## (in a terminal)
+## Launch python server
+```
+cd server
+python3 script.py
+```
+## (in another terminal)
 ## Project setup
 ```
 npm install
@@ -9,16 +16,3 @@ npm install
 ```
 npm run serve
 ```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).

@@ -19,7 +19,7 @@ export default {
 #app {
   background: linear-gradient(to right, #71afff, #7773fc);
   margin: 0;
-  font-family: 'Arial', sans-serif;
+  font-family: 'Oswald', sans-serif;
   color: #fff;
   min-height: 100vh;
   display: flex;

@@ -1,18 +1,24 @@
 <template>
   <main>
-    <section class="image-processing-section">
-      <label for="file-input" class="button-1">Choisir une image</label>
+    <div class="file-input-container">
+      <label for="file-input" class="glow-on-hover">
+        <span>Choisir une image</span>
+      </label>
       <input id="file-input" type="file" @change="handleFileChange" class="file-input">
-      <div class="content-container action-buttons" v-if="selectedImage">
+    </div>
+    <div class="file-drop-container" ref="dropContainer" @dragover.prevent="handleDragOver" @drop.prevent="handleDrop">
+      <p class="drop-text">Glissez-déposez une image ici ou cliquez pour choisir une image</p>
+    </div>
+    <div class="image-container">
+      <img :src="selectedImage" alt="Processed Image" v-if="selectedImage" class="processed-image">
+    </div>
+    <section class="image-processing-section" v-if="selectedImage">
+      <div class="content-container action-buttons">
         <button class="glow-on-hover" @click="processImage('text')">Texte</button>
         <button class="glow-on-hover" @click="processImage('hole')">Texte à trou</button>
       </div>
     </section>
-    <div class="image-container">
-      <img :src="selectedImage" alt="Processed Image" v-if="selectedImage" class="processed-image">
-    </div>
     <section class="loader-container" v-if="loading">
-      <p class="loading-indicator">Loading...</p>
       <div class="loader"></div>
     </section>
     <section v-if="outputText" class="output-container">
@@ -63,18 +69,38 @@ export default {
       .finally(() => {
         this.loading = false;
       });
-    }
-  }
+    },
+    handleDragOver(event) {
+      event.preventDefault();
+      event.dataTransfer.dropEffect = 'copy';
+      // Ajoutez une classe active pour styliser la zone de dépôt
+      this.$refs.dropContainer.classList.add('active');
+    },
+    handleDrop(event) {
+      event.preventDefault();
+      this.$refs.dropContainer.classList.remove('active');
+      const files = event.dataTransfer.files;
+      if (files.length > 0) {
+        this.handleFileChange({ target: { files: [files[0]] } });
+      }
+    },
+  },
 };
 </script>
 
 <style scoped>
+  main {
+    align-items: center;
+  }
+  .file-input-container {
+    text-align: center;
+    margin: 20px;
+  }
   .image-processing-section {
     text-align: center;
     align-items: center;
-    max-width: 800px;
+    max-width: 500px;
     margin: 20px auto;
-    padding: 10px;
     background-color: rgba(255, 255, 255, 0.8);
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
@@ -95,17 +121,13 @@ export default {
 
   .action-buttons {
     margin-top: 15px;
+    margin-bottom: 15px;
     align-items: baseline;
     justify-content: center;
   }
 
   .loader-container {
     margin: 20px;
-  }
-
-  .loading-indicator {
-    text-align: center;
-    margin-top: 20px;
   }
 
   .image-container {
@@ -134,6 +156,7 @@ export default {
   }
 
   .output-text {
+    font-family: 'Oswald', sans-serif;  
     animation-duration: 3s;
     animation-name: slidein;
     font-size: 18px;
@@ -152,7 +175,7 @@ export default {
 
   .loader {
     border: 8px solid #ffffff;
-    border-top: 8px solid #5b92ff;
+    border-top: 8px solid #000000;
     border-radius: 50%;
     width: 50px;
     height: 50px;
@@ -167,22 +190,23 @@ export default {
   }
 
   .glow-on-hover {
-      background: none;
-      border: 2px solid;
-      font: inherit;
-      line-height: 1;
-      margin: 0.5em;
-      padding: 1em 2em;
-      width: 220px;
-      height: 50px;
-      border: none;
-      outline: none;
-      color: #fff;
-      background: #111;
-      cursor: pointer;
-      position: relative;
-      z-index: 0;
-      border-radius: 10px;
+    font-family: 'Oswald', sans-serif;
+    background: none;
+    border: 2px solid;
+    font: inherit;
+    line-height: 1;
+    margin: 0.5em;
+    padding: 1em 2em;
+    width: 220px;
+    height: 50px;
+    border: none;
+    outline: none;
+    color: #fff;
+    background: #111;
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    border-radius: 10px;
   }
 
   .glow-on-hover:before {
@@ -255,5 +279,24 @@ export default {
     border: 1px solid #ffffff;
     color: white;
     box-shadow: 0 0 10px 0 #000000 inset, 0 0 20px 2px #000000;
+  }
+  .file-drop-container {
+    border: 2px dashed #ccc;
+    padding: 20px;
+    text-align: center;
+    cursor: pointer;
+    margin: 20px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .drop-text {
+    font-size: 16px;
+    color: #555;
+  }
+
+  .file-drop-container.active {
+    border-color: #007bff;
   }
 </style>
