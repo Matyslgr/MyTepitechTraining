@@ -10,9 +10,9 @@ Briefly describe your project here.
 - Python
 - OpenAI API
 
-### Getting Started
+## Getting Started
 
-## Prerequisites
+### Prerequisites
 
 Make sure you have the following installed:
 
@@ -20,38 +20,40 @@ Make sure you have the following installed:
 - Python
 - Flask
 
-## Installation
+### Installation
 
-### Clone the repository:
+1. **Clone the repository:**
 
    ```bash
    git clone https://github.com/Matyslgr/MyTepitechTraining
    cd MyTEpitechTraining
    ```
-### Install dependencies
+2. **Install dependencies**
 ```
 npm install
 ```
 
 ### Configuration
+Create a file named .env in the folder server of your project and add the OpenAI
+```
+cd server
+```
 ```
 OPENAI_API_KEY=your_openai_api_key
 ```
 
-## Usage
-**1 In a terminal**
-### Launch python server
+### Usage
+1. **(In a terminal) Launch python server**
 ```
 cd server
 python3 script.py
 ```
-**2 In another terminal**
-### Project setup 
+2. **(In another terminal) Project setup**
 ```
 npm install
 ```
 
-### Start the Vue.js development server:
+3. **Start the Vue.js development server:**
 ```
 npm run serve
 ```
