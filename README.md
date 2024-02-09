@@ -34,7 +34,7 @@ cd MyTEpitechTraining
 ```bash
 npm install
 ```
-3. **Create a file named .env in the folder server of your project and add the OpenAI**
+3. **Create a file named .env in the folder server of your project and add the OpenAI API key**
 ```bash
 cd server
 ```
@@ -56,4 +56,4 @@ npm run serve
 ### Visit http://localhost:8080 in your web browser.
 
 ## How to Use
-Upload an image and select the type of analysis (text or hole) to get processed results.
+Upload an image in the folder Images and select the type of analysis (text or hole) to get processed results.
